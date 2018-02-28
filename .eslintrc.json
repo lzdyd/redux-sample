@@ -26,7 +26,6 @@
     "react/jsx-filename-extension": [0, { "extensions": [".js", ".jsx"] }],
     "react/require-default-props": [0, { "forbidDefaultForRequired": false }],
     "react/forbid-prop-types": [0, { }],
-    "semi": [2, "always"],
-    "no-case-declarations": [0, "never"]
+    "semi": [2, "always"]
   }
 }
