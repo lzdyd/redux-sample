@@ -1,7 +1,16 @@
 import React from 'react';
+import { Provider } from 'react-redux';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+
+import store from './redux/store';
+import routes from './routes';
 
 const Root = () => (
-  <h1>test</h1>
+  <Provider store={store}>
+    <Router>
+      {routes}
+    </Router>
+  </Provider>
 );
 
 export default Root;
