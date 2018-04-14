@@ -1,16 +1,22 @@
 import React from 'react';
-import { Provider } from 'react-redux';
+// import { Provider } from 'react-redux';
 import { BrowserRouter as Router } from 'react-router-dom';
 
-import store from './redux/store';
+// import store from './redux/store';
 import routes from './routes';
 
-const Root = () => (
+/*const Root = () => (
   <Provider store={store}>
     <Router>
       {routes}
     </Router>
   </Provider>
+);*/
+
+const Root = () => (
+  <Router>
+    {routes}
+  </Router>
 );
 
 export default Root;

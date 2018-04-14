@@ -8,7 +8,8 @@ export default (
   <div>
     <Header />
     <Switch>
-      <Route path="/" component={Root}/>
+      <Route exact path="/" component={Root}/>
+      <Route path="/articles" component={() => (<div>Articles</div>)}/>
     </Switch>
   </div>
 );

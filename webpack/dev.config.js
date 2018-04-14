@@ -1,4 +1,5 @@
 const webpack = require('webpack');
+const OpenBrowserPlugin = require('open-browser-webpack-plugin');
 
 module.exports = {
   watch: true,
@@ -12,7 +13,8 @@ module.exports = {
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NamedModulesPlugin(),
-    new webpack.NoEmitOnErrorsPlugin()
+    new webpack.NoEmitOnErrorsPlugin(),
+    new OpenBrowserPlugin({url: `http://localhost:${process.env.PORT || '8080'}/`})
   ],
 
   devServer: {

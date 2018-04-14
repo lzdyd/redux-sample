@@ -1,3 +1,19 @@
 html {
   font-size: 16px;
 }
+
+body {
+  font-family: 'PT Sans', sans-serif;
+}
+
+.no-margin-grid {
+  margin: 0 !important;
+}
+
+.reset-padding {
+  padding: 0 !important;
+}
+
+.reset-list-style-type {
+  list-style-type: none;
+}

@@ -2,7 +2,7 @@ import React from 'react';
 import { Grid, GridRow, GridColumn, Header, Message, Icon } from 'semantic-ui-react';
 
 const Root = () => (
-  <Grid container className="content">
+  <Grid container className="content no-margin-grid">
     <GridRow>
       <GridColumn>
         <Header size='large'>Redux Sample</Header>
