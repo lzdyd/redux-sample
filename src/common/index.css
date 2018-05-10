@@ -17,3 +17,7 @@ body {
 .reset-list-style-type {
   list-style-type: none;
 }
+
+.hide-lg-screen {
+  display: none !important;
+}
