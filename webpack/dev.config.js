@@ -2,6 +2,8 @@ const webpack = require('webpack');
 const OpenBrowserPlugin = require('open-browser-webpack-plugin');
 
 module.exports = {
+  mode: 'development',
+
   watch: true,
 
   watchOptions: {

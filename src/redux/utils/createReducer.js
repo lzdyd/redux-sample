@@ -1,9 +1,7 @@
-import R from 'ramda';
+const createReducer =
+  (initialState, handlers) =>
+    (state = initialState, action) => (
+      Object.prototype.hasOwnProperty.call(handlers, action.type) ? handlers[action.type](state, action) : state
+    );
 
-export default function createReducer(handlers, initialState) {
-  return function (state = initialState, action = {}) {
-    return R.propIs(Function, action.type, handlers)
-      ? handlers[action.type](state, action)
-      : state;
-  };
-}
+export default createReducer;
