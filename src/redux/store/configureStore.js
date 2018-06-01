@@ -16,7 +16,13 @@ const createStoreWithMiddleware = applyMiddleware(
 )(createStore);
 
 export default function configureStore(initialState) {
-  const store = createStoreWithMiddleware(rootReducer, initialState);
+  /* eslint-disable no-underscore-dangle */
+  const store = createStoreWithMiddleware(
+    rootReducer,
+    initialState,
+    !__PRODUCTION__ && window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  );
+  /* eslint-enable */
 
   if (module.hot) {
     // Enable Webpack hot module replacement for reducers

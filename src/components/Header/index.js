@@ -1,4 +1,6 @@
 import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import autoBind from 'react-autobind';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
@@ -131,7 +133,7 @@ const CollapseGridColumn = styled(Grid.Column)`
   }
 `;
 
-export default class Header extends PureComponent {
+class Header extends PureComponent {
   constructor(props) {
     super(props);
     autoBind(this);
@@ -148,6 +150,8 @@ export default class Header extends PureComponent {
   }
 
   render() {
+    const { paths, token } = this.props;
+
     const menuCollapse = (this.state.menuCollapse) ? 'collapse' : null;
 
     return (
@@ -155,7 +159,7 @@ export default class Header extends PureComponent {
         <Container>
           <Grid columns={2} padded>
             <Grid.Column width={2}>
-              <Link to="/"><StyledIcon name="umbrella" /></Link>
+              <Link to={paths.basePath}><StyledIcon name="umbrella" /></Link>
             </Grid.Column>
 
             <Grid.Column width={14} only="mobile" floated="right">
@@ -169,15 +173,15 @@ export default class Header extends PureComponent {
                 <Grid.Column width={8} computer={8} tablet={8} mobile={16}>
                   <nav>
                     <ul className="reset-list-style-type reset-padding">
-                      <li><Link to="/articles">Articles</Link></li>
-                      <li><Link to="/grids">Grids</Link></li>
-                      <li><Link to="/charts">Charts</Link></li>
+                      <li><Link to={paths.articles}>Articles</Link></li>
+                      <li><Link to={paths.grids}>Grids</Link></li>
+                      <li><Link to={paths.charts}>Charts</Link></li>
                     </ul>
                   </nav>
                 </Grid.Column>
 
                 <Grid.Column width={4} computer={4} tablet={4} mobile={16} floated="right">
-                  LOGIN_DROPDOWN
+                  { token.isAuth ? <Link to={paths.auth}>Log off</Link> : <Link to={paths.auth}>Log in</Link> }
                 </Grid.Column>
               </Grid>
             </CollapseGridColumn>
@@ -187,3 +191,20 @@ export default class Header extends PureComponent {
     );
   }
 }
+
+Header.propTypes = {
+  paths: PropTypes.shape({
+    basePath: PropTypes.string,
+    auth: PropTypes.string,
+    articles: PropTypes.string,
+    grids: PropTypes.string,
+    charts: PropTypes.string
+  }).isRequired,
+  token: PropTypes.shape({
+    isAuth: PropTypes.bool.isRequired
+  }).isRequired
+};
+
+export default connect(
+  ({ token }) => ({ token })
+)(Header);

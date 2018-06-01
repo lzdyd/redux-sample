@@ -6,6 +6,8 @@ const production = require('./prod.config');
 
 const { NODE_ENV } = process.env;
 
+const getRootPath = aliasPath => path.join(__dirname, '..', `/src/${aliasPath}`);
+
 require('babel-polyfill');
 
 const common = {
@@ -24,7 +26,10 @@ const common = {
   },
 
   resolve: {
-    extensions: ['.js']
+    extensions: ['.js'],
+    alias: {
+      common: getRootPath('components/common')
+    }
   },
 
   plugins: [
