@@ -29,6 +29,11 @@
     "react/jsx-filename-extension": [0, { "extensions": [".js", ".jsx"] }],
     "semi": [2, "always"],
     "quotes": ["error", "single"],
-    "comma-dangle": ["error", "never"]
+    "comma-dangle": ["error", "never"],
+    "react/prefer-stateless-function": [0, { "ignorePureComponents": true }],
+    "linebreak-style": 0,
+    "space-before-function-paren": ["error", "always"],
+    "object-curly-spacing": ["error", "always"],
+    "space-before-blocks": ["error", "always"]
   }
 }
